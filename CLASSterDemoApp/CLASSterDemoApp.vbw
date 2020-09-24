@@ -1,0 +1,7 @@
+frmDemoAppMain = -170, 19, 697, 757, C, 128, 163, 1044, 1034, C
+ParamDefs = -164, 59, 745, 807, C
+CNorthwindDB = -219, 76, 730, 836, C
+HuntERR31 = 22, 22, 931, 655, 
+frmShowError = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmShowXML = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+ctrXMLUtils = 1, 21, 730, 620, C

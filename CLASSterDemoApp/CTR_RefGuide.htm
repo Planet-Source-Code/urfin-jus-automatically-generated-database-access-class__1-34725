@@ -1,0 +1,1947 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<Title>Database Class Reference</Title>
+</HEAD>
+<style type="text/css">
+BODY
+{
+    FONT-SIZE: 8pt;
+    BACKGROUND: #ffffff;
+    PADDING-BOTTOM: 20pt;
+    COLOR: #000000;
+    PADDING-TOP: 20pt;
+    FONT-FAMILY: Verdana, Arial, sans-serif
+}
+DIV
+{
+    BORDER-RIGHT: #999999 2px;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: #999999 2px;
+    PADDING-LEFT: 0px;
+    BACKGROUND-IMAGE: none;
+    BORDER-LEFT: #999999 2px;
+    WIDTH: 90%;
+    BORDER-BOTTOM: #999999 2px;
+    BACKGROUND-REPEAT: repeat
+}
+H1
+{
+    FONT-WEIGHT: bold;
+    FONT-FAMILY: Tahoma, Arial, Verdana, Helvetica, sans-serif;
+    TEXT-ALIGN: center
+}
+H2
+{
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-ALIGN: center
+}
+H3
+{
+    MARGIN-TOP: 3px;
+    FONT-SIZE: 14pt;
+    COLOR: royalblue;
+    FONT-FAMILY: Arial, sans-serif, Verdana
+}
+H4
+{
+    MARGIN-TOP: 0pt;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    MARGIN-BOTTOM: 0px;
+    PADDING-BOTTOM: 0px;
+    COLOR: black;
+    PADDING-TOP: 0px;
+    FONT-FAMILY: Verdana, Arial, sans-serif
+}
+P
+{
+    MARGIN-TOP: 0px;
+    FONT-SIZE: 8pt;
+    PADDING-BOTTOM: 3pt;
+    LINE-HEIGHT: normal;
+    PADDING-TOP: 0px;
+    TEXT-ALIGN: justify
+}
+UL
+{
+    MARGIN-TOP: 0.6em;
+    MARGIN-BOTTOM: 0em
+}
+OL
+{
+    MARGIN-TOP: 0.6em;
+    MARGIN-BOTTOM: 0em
+}
+OL
+{
+    MARGIN-LEFT: 3.6em
+}
+UL
+{
+    MARGIN-LEFT: 1.9em;
+    LIST-STYLE-TYPE: disc
+}
+LI
+{
+    MARGIN-BOTTOM: 0.6em;
+    TEXT-ALIGN: justify
+}
+PRE
+{
+    MARGIN-TOP: 0px;
+    FONT-WEIGHT: normal;
+    MARGIN-BOTTOM: 0px;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Courier New, Courier, mono;
+    FONT-VARIANT: normal
+}
+CODE
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: black;
+    FONT-FAMILY: Courier New, Courier, mono
+}
+TABLE
+{
+    BACKGROUND-IMAGE: none;
+    MARGIN-BOTTOM: 0em;
+    WIDTH: 100%;
+    BACKGROUND-REPEAT: repeat
+}
+TH
+{
+    PADDING-RIGHT: 8px;
+    PADDING-LEFT: 8px;
+    FONT-SIZE: 8pt;
+    BACKGROUND: #cccccc;
+    PADDING-BOTTOM: 4px;
+    VERTICAL-ALIGN: bottom;
+    PADDING-TOP: 4px;
+    TEXT-ALIGN: left
+}
+TD
+{
+    PADDING-RIGHT: 8px;
+    PADDING-LEFT: 8px;
+    FONT-SIZE: 8pt;
+    BACKGROUND-IMAGE: none;
+    PADDING-BOTTOM: 4px;
+    VERTICAL-ALIGN: top;
+    PADDING-TOP: 4px;
+    BACKGROUND-REPEAT: repeat
+}
+SUP
+{
+    FONT-SIZE: smaller;
+    TEXT-DECORATION: none
+}
+A:link
+{
+    FONT-SIZE: 8pt;
+    COLOR: #0066ff;
+    TEXT-DECORATION: none
+}
+A:visited
+{
+    FONT-SIZE: 8pt;
+    COLOR: #0066ff;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    FONT-SIZE: 8pt;
+    COLOR: #cc9900;
+    TEXT-DECORATION: none
+}
+H5
+{
+    FONT-SIZE: 10pt;
+    COLOR: #336666;
+    FONT-FAMILY: Verdana, Arial;
+    TEXT-ALIGN: left
+}
+H6
+{
+    MARGIN-TOP: 3px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    MARGIN-BOTTOM: 3px;
+    COLOR: #0066ff
+}
+
+</style>
+<BODY>
+
+
+<table border="0" cellpadding="0" cellspacing="0" align=center width="90%">
+<tr><td>
+<h1>CLASS<EM>ter</EM></h1>
+<h3 align=center>Database Class Reference</h3>
+<h4 align=center>Version 2.0, All Editions. </h4>
+<p>&nbsp;
+<p><center>
+Copyright URFIN JUS (<A HREF="http://www.urfinjus.net">www.urfinjus.net</A>), 2001-2002. All Rights Reserved.
+</center>
+<p>&nbsp;
+
+<tr><td>
+<A name="Contents"><h3>Contents</h3></A>
+<table border="0" cellpadding="0" cellspacing="0" align=center width="90%">
+	<tr><td width="300pt">
+	<p><a href="#ExecSPbyName">ExecSPbyName Function</a>
+	<h6>SQL Execution</h6>
+		<UL>
+			<LI><a href="#AddSQLParam">AddSQLParam Function</a>
+			<LI><a href="#ExecSQL">ExecSQL Function</a>
+		</UL>
+	<h6>Multiple Recordsets Functionality</h6>
+		<UL>
+			<LI><a href="#SelectNextRecordset">SelectNextRecordset Function</a>
+			<LI><a href="#SkipClosedRecordsets">SkipClosedRecordsets Function</a>
+		</UL>
+	<h6>Recordset Navigation</h6>
+		<UL>
+			<LI><a href="#RsNavigation">Recordset Navigation Methods</a>
+		</UL>
+	<h6>Transaction Control</h6>
+		<UL>
+			<LI><a href="#Transaction">BeginTransaction, SetComplete, SetAbort Methods</a>
+		</UL>
+	<h6>Batch Execution</h6>
+		<UL>
+			<LI><a href="#BatchBegin">BatchBegin Function</a>
+			<LI><a href="#BatchExec">BatchExec Function</a>
+			<LI><a href="#BatchCancel">BatchCancel Function</a>
+			<LI><a href="#BatchActive">BatchActive Property</a>
+			<LI><a href="#BatchText">BatchText Property</a>
+			<LI><a href="#BatchDeclareVar">BatchDeclareVar Function</a>
+		</UL>
+	<h6>XML Functionality</h6>
+		<UL>
+			<LI><a href="#xmlGetRecordset">xmlGetRecordset Function</a>
+			<LI><a href="#xmlGetData">xmlGetData Function</a>
+			<LI><a href="#xmlGetDataAll">xmlGetDataAll Function</a>
+			<LI><a href="#xmlGetDataAdv">xmlGetDataAdv Function</a>
+		</UL>
+	<h6>Automatic Data Formatting</h6>
+		<UL>
+			<LI><a href="#ValueFmt">ValueFmt Property</a>
+			<LI><a href="#FormatSet">FormatSet Sub</a>
+			<LI><a href="#FormatOf">FormatOf Property</a>
+			<LI><a href="#FormatsClear">FormatsClear Sub</a>
+		</UL>
+	</td>
+	<td>
+	<h6>Enumerations</h6>
+		<UL>
+			<LI><a href="#ENUM_ERRDB">Enum ENUM_ERRDB</a>
+			<LI><a href="#ENUM_CTR_OPTIONS">Enum ENUM_CTR_OPTIONS</a>
+		</UL>
+	<h6>Basic Functionality</h6>
+		<UL>
+			<LI><a href="#Options">Options Property</a>
+			<LI><a href="#ConnectionString">ConnectionString Property</a>
+			<LI><a href="#Connected">Connected property</a>
+			<LI><a href="#Connect">Connect Sub</a>
+			<LI><a href="#Disconnect">Disconnect Sub</a>
+			<LI><a href="#DisconnectRecordset">DisconnectRecordset Sub</a>
+			<LI><a href="#ReleaseConnection">ReleaseConnection Sub</a>
+			<LI><a href="#ReleaseADO">ReleaseADO Sub</a>
+			<LI><a href="#Connection">Connection Property</a>
+			<LI><a href="#Command">Command Property</a>
+			<LI><a href="#Recordset">Recordset Property</a>
+			<LI><a href="#TestConnection">TestConnection Function</a>
+			<LI><a href="#ADOVersion">ADOVersion Property</a>
+			<LI><a href="#SetADOSettings">SetADOSettings Sub</a>
+			<LI><a href="#RecordsetMaxRecords">RecordsetMaxRecords Property</a>
+			<LI><a href="#ProcGroup">ProcGroup Property</a>
+			<LI><a href="#Value">Value Property</a>
+			<LI><a href="#ValueIsNull">ValueIsNull Property</a>
+			<LI><a href="#ParamValue">ParamValue Property</a>
+			<LI><a href="#ParamIsNull">ParamIsNull Property</a>
+			<LI><a href="#ReturnValue">ReturnValue Property</a>
+			<LI><a href="#Error">Error Handling Methods</a>
+		</UL>
+	</td></tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" align=center>
+<tr><td>
+
+<A name="ExecSPbyName"/>
+<HR>
+<h3>ExecSPbyName Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> ExecSPbyName(<FONT color=#000080>ByVal</FONT> SPName <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>, <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> ParamDefs <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>, _
+                          <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> arrValues) <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Executes stored procedure with a given name. Uses parameters definitions packed in 
+string constants to rebuild <EM>Parameters</EM> collection of ADO <EM>Command</EM> object. 
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>SPName</EM>
+		<td>Required, String. Name of stored procedure to execute. Must be fully qualified name. You may 
+		either provide name directly as string literal, or use name constants generated 
+		by <STRONG>CLASSter</STRONG> in parameters definition module. 
+		Constants containing names of stored procedures start 
+		with <EM>SP_</EM>... prefix.
+	</tr>
+	<tr>
+		<td><EM>ParamDefs</EM></td>
+		<td>Optional, String. Stored procedure's parameters definitions packed into string constant. These 
+		constants are generated by CLASSter and placed into separate VB Standard (.Bas)
+		module. Constants names are composed of prefix <EM>PRM_</EM>... followed 
+		by the name of stored procedure. 
+		</td>
+	</tr>
+	<tr>
+		<td><EM>arrValues</EM></td>
+		<td>Optional, Variant array. Array of input parameters' values. You can use 
+		<EM>Array()</EM> VB function to create array on-the-fly. 
+		If procedure has only one parameter, you may provide it as is, 
+		without placing it into array. 
+		</td>
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>This function provides the alternative way of executing stored procedures in database, 
+	as opposed to use of individual hard-coded function for every stored procedure. Although
+	this method seems less convenient, harder to debug and maintain, there are 
+	situations when it has considerable advantages. First of all executable code is more
+	compact. In regard to performance we didn't notice 
+	any difference in speed of execution between the two methods. 
+	<p>The two modes are fully compatible, and you can mix calls performed through either 
+	of the methods. <EM>ExecSPbyName</EM> may be used to execute stored procedures in Batch mode. 
+	<p>If stored procedure has output parameters, you can retrieve parameter values after
+	executing it through <a href="#ParamValue">ParamValue</a> property. 
+	<p>If stored procedure has no parameters then you should call this method providing 
+	procedure name only. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Calling stored procedures by name. Included if user checks [Add function ExecSPbyName...] checkbox in
+[Stored Procedures] page in CLASSter. 
+<h4>See also</h4> 
+	<a href="#ParamValue">ParamValue</a>,
+	<a href="#ExecSQL">ExecSQL</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="#AddSQLParam"/>
+<HR>
+<h3>AddSQLParam Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> AddSQLParam(<FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> PValue <FONT color=#000080>As</FONT> <FONT color=#000080>Variant</FONT>, _
+                     <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> PName <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>, _
+                     <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> PDir <FONT color=#000080>As</FONT> ADODB.ParameterDirectionEnum = adParamInput, _
+                     <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> PType <FONT color=#000080>As</FONT> ADODB.DataTypeEnum = adInteger, _
+                     <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> PSize <FONT color=#000080>As</FONT> <FONT color=#000080>Long</FONT> = 0, _
+                     <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> ZeroAsNull <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT> = False) <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Appends parameter to <EM>Parameters</EM> collection of ADO <EM>Command</EM> object for later use to execute parameterized 
+SQL statement. Returns boolean True in case of success (no error occurred).
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>PValue</EM>
+		<td>Optional, Variant. Value of parameter. May be omitted for output parameters
+	</tr>
+	<tr>
+		<td><EM>PName</EM></td>
+		<td>Optional, String. Name of the parameter.</td>
+	</tr>
+	<tr>
+		<td><EM>PDir</EM></td>
+		<td>Optional. Direction constant defined by ADO <EM>ParameterDirectionEnum</EM> (adParamInput, adParamOutput, adParamInputOutput)</td>
+	</tr>
+	<tr>
+		<td><EM>PType</EM></td>
+		<td>Optional. Data type constant defined by ADO <EM>DataTypeEnum</EM></td>
+	</tr>
+	<tr>
+		<td><EM>PSize</EM></td>
+		<td>Optional. Maximum length for variable-size data types. Application should provide non-zero value for this argument 
+		if parameter is of one of string ADO types (<EM>adVarChar</EM>, <EM>adChar</EM>, etc)</td>
+	</tr>
+	<tr>
+		<td><EM>ZeroAsNull</EM></td>
+		<td>Boolean flag, default False. If True then zero value of parameter will be substituted with Null. 
+		 </td>
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>Application must call this function for each parameter identified by question mark in 
+SQL string. All arguments are optional with default values. Application must provide non-zero
+value for <EM>ParamSize</EM> argument for parameters of variable-size types. 
+String data types (<EM>adVarChar</EM>, <EM>adChar</EM>, etc.) are among such types.
+See ADO documentation for more information about adding parameters to ADO <EM>Command</EM> object. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>SQL Execution. Included if user checks [Add Methods for Executing SQL Statements] checkbox on [SQL] page
+<h4>See also</h4> 
+	<a href="#ExecSQL">ExecSQL</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="ExecSQL"/>
+<HR>
+<h3>ExecSQL Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> ExecSQL(<FONT color=#000080>ByVal</FONT> SQL <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>, <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> Values) <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Executes SQL statement in database. 
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>SQL</EM>
+		<td>Required, String. SQL statement to execute. 
+	</tr>
+	<tr>
+		<td><EM>Values</EM></td>
+		<td>Optional, Variant. Array of values to replace placeholders in SQL string. 
+		 </td>
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>If <EM>Values</EM> argument is provided, then <EM>ExecSQL</EM> scans SQL statement looking for 
+placeholders like "%1", "%2", etc., and replaces them with corresponding elements from <EM>Values</EM> 
+array. Placeholders are 1-based, but <EM>Values</EM> is 0-based, so "%1" is replaced by <EM>Values(0)</EM>. 
+<EM>Values</EM> argument may be a single value, or variant array of values. 
+To allow use of string values containing single-quote character all occurrencies 
+of this character inside <EM>Values()</EM> elements are automatically "doubled" by <EM>ExecSQL</EM>.  
+Application can use <EM>Array()</EM> function to create array on-the-fly.
+<p>Instead of using embedded parameters application can use explicit parameters to execute parameterized
+SQL statements. 
+These parameters are added using <a href="#AddSQLParam">AddSQLParam</a> function.
+<p><EM>ExecSQL</EM> automatically connects to database if class instance was not connected. 
+<h4>Functional Group, Availability</h4>
+<p>SQL Execution. Included if user checks [Add Methods for Executing SQL Statements] checkbox on [SQL] page
+<h4>See also</h4> 
+	<a href="#AddSQLParam">AddSQLParam</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="SelectNextRecordset"/>
+<HR>
+<h3>SelectNextRecordset Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> SelectNextRecordset() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Selects next <EM>Recordset</EM> in sequence returned by last database operation. Returns
+boolean True if successful, False otherwise. 
+<h4>Parameters</h4>
+<p>(None)
+<h4>Comments</h4>
+<p>After this function returned false current Recordset is Nothing. 
+You should be aware that some of the recordsets in 
+sequence may be closed (<EM>State</EM> property = <EM>adStateClosed</EM>),
+unless you set <EM>CTRO_AUTO_SKIPCLOSED</EM>
+flag through <a href="#Options">Options</a> property. 
+In this flag is set then <EM>SelectNextRecordset</EM> will check <EM>Recordset</EM>'s
+state, and continue through sequence until it finds the opened one, 
+or until the sequence is over. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Multiple Recordsets Functionality. Included if user checked 
+[Add methods for manipulating multiple recordsets] checkbox in 
+[Class Functionality / ADO Helper Methods] page in CLASSter. 
+This functionality is available only for MS SQL Server and Sybase
+servers. OLE DB Providers for other servers currently don't support
+retrieving multiple recordsets in one operation.
+<h4>See also</h4> 
+	<a href="#Recordset">Recordset</a>,
+	<a href="#SkipClosedRecordsets">SkipClosedRecordsets</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="SkipClosedRecordsets"/>
+<HR>
+<h3>SkipClosedRecordsets Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> SkipClosedRecordsets() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Ensures that current recordset is open. 
+<h4>Parameters</h4>
+<p>(None)
+<h4>Comments</h4>
+<p>Checks state of current recordset. If it is <EM>adStateClosed</EM>, 
+selects next <EM>Recordset</EM> in sequence, and repeats the check. 
+Continues until either opened <EM>Recordset</EM> is
+found in sequence, or sequence is over. Returns Boolean True if successful, i.e.
+current recordset is not <EM>Nothing</EM> and its <EM>State</EM> is <EM>adStateOpen</EM>;
+returns False otherwise. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Multiple Recordsets Functionality. Included if user checked 
+[Add methods for manipulating multiple recordsets] checkbox in 
+[Class Functionality / ADO Helper Methods] page in CLASSter. 
+This functionality is available only for MS SQL Server and Sybase
+servers.
+<a href="#SelectNextRecordset">SelectNextRecordset</a> function. 
+<h4>See also</h4> 
+	<a href="#Recordset">Recordset</a>,
+	<a href="#SelectNextRecordset">SelectNextRecordset</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="RsNavigation"/>
+<HR>
+<h3>Recordset Navigation Methods</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> MoveFirst() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> MoveLast() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> MoveNext() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> MovePrevious() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> EOF() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> BOF() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> RecordCount() <FONT color=#000080>As</FONT> <FONT color=#000080>Long</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> HasRecords() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Methods/properties allow application to navigate current <a href="#Recordset">Recordset</a>. 
+All of them except <EM>HasRecords</EM> property are wrappers around corresponding 
+methods/properties of ADO <EM>Recordset</EM> object. <EM>HasRecords</EM> returns True if current 
+<a href="#Recordset">Recordset</a> is not empty.
+<h4>Comments</h4>
+<p>All properties are read-only. Functions return True in case of success, False if error 
+occurred. Using wrappers for Recordset object's methods may provide some substantial benefits:
+<UL>
+	<LI>Better error handling. ADO error messages are often obscure, and most of the time don't include the name of 
+	failed method. When error happens inside wrapper method (provided you use HuntERR for error handling)
+	error report gives you wrapper's method name, which identifies the corresponding <EM>Recordset</EM>'s method. 
+	<LI>Application code is more compact and clear.
+	<LI>Calling Recordset's methods through COM+ transaction boundaries sometimes results in 
+	incorrect <EM>Recordset</EM> behavior. Using wrappers solves the problem. 
+</UL>	
+<p><EM>HasRecords</EM> property is fail-safe - it never raises error. Sometimes this feature may be very convenient.
+<EM>HasRecords</EM> returns True only if Recordset object is not <EM>Nothing</EM>, its state is <EM>adStateOpen</EM>, 
+and either of <EM>EOF</EM> or <EM>BOF</EM> properties is false. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Recordset Navigation. Included is user checks [Add Recordset navigation methods] checkbox in 
+[Class Functionality / Recordset Navigation] page in <EM>CLASSter</EM>. 
+<h4>See also</h4> 
+	<a href="#Recordset">Recordset property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="Transaction"/>
+<HR>
+<h3>BeginTransaction, SetComplete, SetAbort Methods</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> BeginTransaction() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> SetComplete() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> SetAbort() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Transaction control functions allow application to start, commit or abort 
+database transactions. 
+<h4>Comments</h4>
+<p>Internal functionality of these methods depends on user's selection 
+in [Class Functionality / Transactions] page in <EM>CLASSter</EM>. 
+If user selects to control transactions through ADO <EM>Connection</EM> 
+object then these methods call corresponding methods of <EM>Connection</EM> object.  
+If user selects to control transactions through COM+ services then the following
+things happen: 
+<UL>
+	<LI><EM>BeginTransaction</EM> does nothing. COM+ transaction is started when 
+	transactional object is instantiated. Database class instance is included in the scope
+	of transaction by creating it from inside any object participating in 
+	transaction, or by configuring it in COM+ services with attribute 
+	"Requires (New) Transaction". 
+	<LI><EM>SetComplete</EM> and <EM>SetAbort</EM> methods call corresponding 
+	methods of Object Context retrieved through <EM>GetObjectContext</EM> function 
+	provided by COM+ services. This doesn't immediately commit or abort 
+	transaction. Database class instance simply votes on transaction outcome. 
+	Actual commit/abort will happen after returning from the first "transactional" method. 
+</UL>
+<p>See Microsoft documentation for more information about controlling transactions
+in COM+. We recommend you to consider using <EM>ujTransaction</EM> class to control COM+ 
+transactions. We provide source code of this class with CLASSter.
+<h4>Functional Group, Availability</h4>
+<p>Transaction Control. Methods are included in database class if user selects 
+any option other than [No Transaction Control] in [Class Functionality / Transactions]
+page in <EM>CLASSter</EM>. 
+<h4>See also</h4> 
+	<a href="#Options">Options property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="BatchBegin"/>
+<HR>
+<h3>BatchBegin Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> BatchBegin() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Turns batch mode ON, initializes internal variables. Returns True if successful. 
+<h4>Comments</h4>
+<p>After calling this method all calls to database will not be executed immediately 
+but recorded in internal buffer. The whole batch will be executed when application
+calls <a href="#BatchExec">BatchExec</a> method. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Batch Functionality. Included if user checks [Add Batch execution functionality] checkbox in
+   [Class Functionality / Batch Execution]. Not available for MS Access. 
+<h4>See also</h4> 
+	<a href="#BatchActive">BatchActive property</a>,
+	<a href="#BatchExec">BatchExec</a>,
+	<a href="#BatchCancel">BatchCancel</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="BatchExec"/>
+<HR>
+<h3>BatchExec Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> BatchExec() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Executes accumulated batch in one database command. Returns True if successful,
+False otherwise. 
+<h4>Comments</h4>
+<p>Turns batch mode OFF after execution. 
+<h4>Functional Group, Availability</h4>
+<p>Batch Functionality. Included if user checks [Add Batch execution functionality] checkbox in
+   [Class Functionality / Batch Execution]. Not available for MS Access. 
+<h4>See also</h4> 
+	<a href="#BatchActive">BatchActive property</a>,
+	<a href="#BatchBegin">BatchBegin</a>,
+	<a href="#BatchCancel">BatchCancel</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="BatchCancel"/>
+<HR>
+<h3>BatchCancel Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> BatchCancel() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Cancels batch mode. Returns True if successful, False otherwise.
+<h4>Comments</h4>
+<p>(None)
+<h4>Functional Group, Availability</h4>
+<p>Batch Functionality. Included if user checks [Add Batch execution functionality] checkbox in
+   [Class Functionality / Batch Execution]. Not available for MS Access. 
+<h4>See also</h4> 
+	<a href="#BatchActive">BatchActive property</a>,
+	<a href="#BatchBegin">BatchBegin</a>,
+	<a href="#BatchCancel">BatchCancel</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="BatchActive"/>
+<HR>
+<h3>BatchActive Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> BatchActive() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Read Only. Returns True if batch execution mode is ON, i.e. calls to database server are 
+not executed immediately but recorded as SQL statements in internal buffer. 
+<h4>Comments</h4>
+<p>Batch mode is turned ON when application calls <a href="#BatchBegin">BatchBegin</a> method, and turned
+OFF by <a href="#BatchExec">BatchExec</a> or <a href="#BatchCancel">BatchCancel</a> methods.  
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Batch Functionality. Included if user checks [Add Batch execution functionality] checkbox in
+   [Class Functionality / Batch Execution]. Not available for MS Access. 
+<h4>See also</h4> 
+	<a href="#BatchBegin">BatchBegin</a>,
+	<a href="#BatchExec">BatchExec</a>,
+	<a href="#BatchCancel">BatchCancel</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="BatchText"/>
+<HR>
+<h3>BatchText Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> BatchText() <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Read Only. Returns accumulated batch string. 
+<h4>Comments</h4>
+<p>This property is not cleared by <a href="#BatchExec">BatchExec</a> function, so application
+may retrieve batch text after executing a batch. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Batch Functionality. Included if user checks [Add Batch execution functionality] checkbox in
+   [Class Functionality / Batch Execution]. Not available for MS Access. 
+<h4>See also</h4> 
+	<a href="#BatchBegin">BatchBegin</a>,
+	<a href="#BatchExec">BatchExec</a>,
+	<a href="#BatchCancel">BatchCancel</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="BatchDeclareVar"/>
+<HR>
+<h3>BatchDeclareVar Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> BatchDeclareVar(<FONT color=#000080>ByVal</FONT> VarName <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>, _
+                        <FONT color=#000080>ByVal</FONT> VarType <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>, _
+                        <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> UseForParams <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>, _
+                        <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> InitialValue <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>) <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Declares a variable inside batch command sequence.   
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>VarName</EM>
+		<td>Required, String. Name of variable to declare. 
+	</tr>
+	<tr>
+		<td><EM>VarType</EM></td>
+		<td>Required, String. String representation of variable data type, including size/length 
+		attributes, exactly in format it may appear in stored procedure on server.</td>
+	</tr>
+	<tr>
+		<td><EM>UseForParams</EM></td>
+		<td>Optional, String. Comma-delimited list of stored procedures parameter
+		names that must be substituted in future calls with this variables. 
+		</td>
+	</tr>
+	<tr>
+		<td><EM>InitialValue</EM></td>
+		<td>Optional, String. Specifies initial value of the variable. </td>
+	</tr>
+</table>
+<h4>Comments</h4>
+<p> The main purpose of using batch variables is to carry the value 
+returned by output parameter from one stored procedure into another call as input parameter.   
+Application should follow database language rules for declaring variables. 
+If application does not provide UseForParams parameter, then variable name is used 
+to match with parameter names in order to detect ones that must be substituted. 
+Note that we mean not VB parameter name, but original name of parameter of 
+stored procedure, as it appears in its header.
+<p>Initial value must be specified exactly as it may appear in procedure's text
+on server. String values should have enclosing single quotes. 
+<p>If you have two stored procedure which have a parameter with the same name, and
+you want a variable to be used only for one of them, then you may specify qualified
+name for UseForParams parameter. The format of qualified name depends on database
+server type you are working with:
+<UL>
+	<LI>Oracle: <EM>ProcName:ParamName</EM>, ex.: "PKG_MAIN.GetStuff:StuffID"
+	<LI>MS SQL Server: <EM>[ProcName]:ParamName</EM>, ex.: "[GetStuff]:StuffID"
+	<LI>Sybase: <EM>"ProcName":ParamName</EM>, ex. in VB: """GetStuff"":StuffID"  
+</UL>
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Batch Functionality. Included if user checks [Add Batch execution functionality] checkbox in
+   [Class Functionality / Batch Execution]. Not available for MS Access. 
+<h4>See also</h4> 
+	<a href="#BatchBegin">BatchBegin</a>,
+	<a href="#BatchExec">BatchExec</a>,
+	<a href="#BatchCancel">BatchCancel</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="xmlGetRecordset"/>
+<HR>
+<h3>xmlGetRecordset Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> xmlGetRecordset() <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Returns XML string representing current <a href="#Recordset">Recordset</a>. 
+<h4>Comments</h4>
+<p>Returned XML string contains definition of <EM>Recordset</EM> (schema) and <EM>Recordset</EM> data. 
+Function returns unchanged XML message generated by <EM>Save</EM> method of ADO <EM>Recordset</EM> object.
+This XML message may be later used to re-create the <EM>Recordset</EM> object. 
+See ADO documentation for more information about <EM>Recordset.Save</EM> method. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic XML Functionality. Included if user checks [Add basic XML functionality] in [Class Functionality /XML]
+<EM>CLASSter</EM> page. 
+<h4>See also</h4> 
+	<a href="#Recordset">Recordset property</a>
+	<a href="#xmlGetData">xmlGetData</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="xmlGetData"/>
+<HR>
+<h3>xmlGetData Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> xmlGetData(<FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> RsDataElem <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT> = <FONT color=#808080>"Recordset"</FONT>, _
+                            <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> ZRowElem <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT> = <FONT color=#808080>"Record"</FONT>, _
+                            <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> ClosingTag <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>) <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Returns <EM>Recordset</EM> data (only) as XML message. 
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>RsDataElem</EM>
+		<td>Optional, String. Either element name, or complete opening tag of root element of resulting XML message. 
+		If application provides opening tag then it must provide  matching closing tag in <EM>ClosingTag</EM> parameter. 
+	</tr>
+	<tr>
+		<td><EM>ZRowElem</EM></td>
+		<td>Optional, String. Name of XML elements that will representing <EM>Recordset</EM>'s 
+		records in resulting XML message. These elements will be child elements of root element.</td>
+	</tr>
+	<tr>
+		<td><EM>ClosingTag</EM></td>
+		<td>Optional, String. If RsDataElem parameter contains opening tag this parameter is required, and must match
+		opening tag. 
+	</tr>
+</table>
+<h4>Comments</h4>
+<p><EM>xmlGetData</EM> function like <EM>xmlGetRecordset</EM> 
+uses <EM>Save</EM> method of ADO <EM>Recordset</EM> object
+to get XML representation of <EM>Recordset</EM>. It extracts data section from XML message,
+ and changes element names to names provided as function parameters. It uses simple substring 
+ match/replace operations for this. It is safe to do so - there is no danger of erroneous match with data fragments, 
+ because strings being matched/replaced contain special XML characters (like "&lt;"), 
+ which are always escaped (represented  by special character combinations) in data substrings in XML message. 
+<p>For root element application can either provide element name, or complete opening and closing tags. Specifying tags rather 
+than elements allows you to specify additional attributes, declare namespaces, instructions, etc. in the opening 
+tag. 
+<h4>Functional Group, Availability</h4>
+<p>Basic XML Functionality. Included if user checks [Add basic XML functionality] in [Class Functionality /XML]
+<h4>See also</h4> 
+	<a href="#xmlGetRecordset">xmlGetRecordset</a>,
+	<a href="#Recordset">Recordset property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="xmlGetDataAll"/>
+<HR>
+<h3>xmlGetDataAll Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> xmlGetDataAll(<FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> RootElem <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT> = <FONT color=#808080>"Data"</FONT>, _
+                              <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> RsDataElems <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT> = <FONT color=#808080>"Recordset"</FONT>, _
+                              <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> ZRowElems <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT> = <FONT color=#808080>"Record"</FONT>, _
+                              <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> ClosingTag <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>) <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>
+</pre></code>
+<h4>Description</h4>
+<p>Returns data from entire sequence of Recordsets returned by last database operation 
+as one XML message. 
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description<EM>
+	</tr>
+	<tr>
+		<td><EM>RootElement</EM>
+		<td>Required, String. Root element of resulting XML message. Alternatively may contain opening tag. 
+	</tr>
+	<tr>
+		<td><EM>RsDataElems</EM></td>
+		<td>Optional, String. Comma-delimited list of element names that represent <EM>Recordsets</EM> in 
+		resulting XML message. The first name in the list is element name for first <EM>Recordset</EM> 
+		in sequence, second name is for the second <EM>Recordset</EM>, etc.</td>
+	</tr>
+	<tr>
+		<td><EM>ZRowElems</EM></td>
+		<td>Optional, String. Comma-delimited list of element names that will represent rows in each 
+		<EM>Recordset</EM> in sequence. So the first name in the list is name of element for records in the first 
+		<EM>Recordset</EM>, second name is for the second <EM>Recordset</EM>, etc.  
+		</td>
+	</tr>
+	<tr>
+		<td><EM>ClosingTag</EM></td>
+		<td>Optional, String. If <EM>RootElem</EM> parameter contains opening tag then 
+		this parameter is required. 
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>This function combines all recordsets returned by last database operation in one XML message. 
+If you provide empty element in <EM>RsDataElems</EM> list, then rows of corresponding recordset will be placed 
+directly under the root element of resulting XML message. 
+When retrieving Recordsets in sequence function skips closed recordsets automatically, irrespective 
+of value of corresponding flag in <a href="#Options">Options</a> property. 
+<p>This function is available only if database class contains functionality for manipulating 
+multiple recordsets. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic XML Functionality. This function is included in database class if user checks two checkboxes:
+<UL>
+	<LI>[Add basic XML functionality] checkbox in [Class Functionality /XML] page. 
+	<LI>[Add methods for manipulating multiple recordsets] checkbox in 
+	[Class Functionality / Recordset Manipulation]	page. 
+</UL>
+<p>As multiple recordsets are supported only by MS SQL Server and Sybase servers, <EM>xmlGetDataAll</EM> function
+is available only for these servers.   
+<h4>See also</h4> 
+	<a href="#Options">Options property</a>
+	<a href="#xmlGetData">xmlGetData</a>,
+	<a href="#SelectNextRecordset">SelectNextRecordset</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="xmlGetDataAdv"/>
+<HR>
+<h3>xmlGetDataAdv Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> xmlGetDataAdv(<FONT color=#000080>ByVal</FONT> RsDataElem <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>, _
+                            <FONT color=#000080>ByVal</FONT> ZRowSpecs <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>, _
+                            <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> SkipRecords <FONT color=#000080>As</FONT> <FONT color=#000080>Long</FONT> = 0, _
+                            <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> IncludeMaxRecords <FONT color=#000080>As</FONT> <FONT color=#000080>Long</FONT> = -1, _
+                            <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> ClosingTag <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>) <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Returns customized XML representation of current <a href="#Recordset">Recordset</a>. 
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>RsDataElem</EM>
+		<td>Required, String. Name of element that will represent the entire recordset. 
+	</tr>
+	<tr>
+		<td><EM>NodeSpecs</EM></td>
+		<td>Required, String. String containing packed description of XML message structure and 
+		mapping of Recordset fields into elements/attributes in XML message. 
+	</tr>
+	<tr>
+		<td><EM>SkipRecords</EM></td>
+		<td>Optional, Long. Number of records to skip at the beginning of recordset.  
+	</tr>
+	<tr>
+		<td><EM>IncludeMaxRecords </EM></td>
+		<td>Optional, Long. Maximum number of records to include into XML message. 
+	</tr>
+	<tr>
+		<td><EM>ClosingTag</EM></td>
+		<td>Optional, String. If RsDataElem parameter contains opening tag this parameter is required, and must match
+		opening tag. 
+	</tr>
+</table>
+<h4>Comments</h4>
+<p><EM>xmlGetDataAdv</EM> function provides application with complete control
+over output XML message structure. 
+This function works quite differently compared to <EM>xmlGetData</EM> and <EM>xmlGetDataAll</EM>
+It does not use <EM>Save</EM> method of ADO <EM>Recordset</EM> object. Instead, it iterates through
+records and fields of <EM>Recordset</EM>, and builds customized XML message following 
+instructions in <EM>ZRowSpecs</EM> parameter. 
+<p>Note: If automatic formatting functions (<a href="#FormatSet">FormatSet</a> 
+among them) are included into database class then <EM>xmlGetDataAdv</EM> 
+function uses <a href="#ValueFmt">ValueFmt</a> property to retrieve formatted 
+field values. Otherwise it uses <a href="#Value">Value</a> property. 
+This allows to apply specific formats to data nodes of resulting XML message.
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Advanced XML Functionality. Included if user selects [Add advanced XML support...] in 
+[Class Functionality / XML] page. 
+<h4>See also</h4> 
+	<a href="#xmlGetData">xmlGetData</a>,
+	<a href="#Recordset">Recordset property</a>,
+	<a href="#ValueFmt">ValueFmt property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="ValueFmt"/>
+<HR>
+<h3>ValueFmt Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> ValueFmt(<FONT color=#000080>ByVal</FONT> FieldName <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>) <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Read Only. Returns formatted value of <a href="#Recordset">Recordset</a> field.  
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>FieldName</EM>
+		<td>Required, String. <EM>Recordset</EM>'s field name.  
+	</tr>
+</table>
+<h4>Comments</h4>
+<p><EM>ValueFmt</EM> provides convenient mechanism for automatically formatting 
+values in <a href="Recordset">Recordset</a> fields.
+Database class maintains internal collection of format strings. 
+Application adds/removes format strings to/from collection using
+ <a href="#FormatSet">FormatSet</a> Sub. 
+ <EM>FormatSet</EM> allows you to associate format string either with fields' data type(s), 
+or with specific field name(s). 
+<p><EM>ValueFmt</EM> first checks if there is format string in formats collection
+associated directly with specified field name. If there is no such string, then
+it looks for format string associated with field's data type. If format string 
+found (either way) then <EM>ValueFmt</EM> uses it to format field's value 
+and returns as result. If format string is not found then <EM>ValueFmt</EM> returns default string
+representation of field value by simply assigning 
+<a href="#Value">Value</a> property value to result string. 
+<p>Note: If automatic formatting functions are included into database class then 
+<a href="#xmlGetDataAdv">xmlGetDataAdv</a>
+ function uses <EM>ValueFmt</EM> property to retrieve field values. 
+Otherwise <EM>xmlGetDataAdv</EM> uses <a href="#Value">Value</a> property. 
+<h4>Functional Group, Availability</h4>
+<p>Automatic Formatting Functionality. Included if user selects [Add automatic formatting functionality] 
+checkbox in [Class Functionality / Recordset manipulation] page in CLASSter. 
+<h4>See also</h4> 
+	<a href="#Value">Value</a>,
+	<a href="#FormatSet">FormatSet</a>,
+	<a href="#xmlGetDataAdv">xmlGetDataAdv</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="FormatSet"/>
+<HR>
+<h3>FormatSet Sub</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Sub</FONT> FormatSet(<FONT color=#000080>ByVal</FONT> AFormat <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>, ParamArray FieldsOrTypes())
+</pre></code>
+<p><h4>Description</h4>
+<p>Adds/removes format string to internal formats collection. 
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>AFormat</EM>
+		<td>Required, String. Format string to be added (removed) to formats collection. 
+	</tr>
+	<tr>
+		<td><EM>FieldsOrTypes</EM></td>
+		<td>Parameter array of field names and/or ADO data types to which this 
+		format string should be applied by <a href="#ValueFmt">ValueFmt</a> property. 
+		</td>
+	</tr>
+</table>
+<h4>Comments</h4>
+<p><EM>FormatSet</EM> adds/removes format specification to database class's internal collection of
+formats. These format specifications will be later used by <a href="#ValueFmt">ValueFmt</a> 
+property to format <EM>Recordset</EM> field values. 
+Each element in <EM>FieldOrTypes</EM> list is either field name (string), or ADO type constant 
+(like <EM>adInteger</EM>). Format strings are "linked" to field names/types. To remove the link 
+for field name/type simply call FormatSet with empty <EM>AFormat</EM> parameter, and provide field names/types
+in <EM>FieldsOrTypes</EM> list. 
+<p>Formats collection is maintained for the lifetime of database class instance. So you
+can specify formats once when you instantiate database class, and then use them to format 
+values from different <EM>Recordsets</EM>.
+<h4>Functional Group, Availability</h4>
+<p>Automatic Formatting Functionality. Included if user selects [Add automatic formatting functionality] 
+checkbox in [Class Functionality / Recordset manipulation] page in CLASSter. 
+<h4>See also</h4> 
+	<a href="#ValueFmt">ValueFmt</a>,
+	<a href="#FormatsClear">FormatsClear</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="FormatOf"/>
+<HR>
+<h3>FormatOf Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> FormatOf(<FONT color=#000080>ByVal</FONT> FieldOrType) <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Read only. Returns format string associated with field name or data type in internal formats collection. 
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>FieldOrType</EM>
+		<td>Required, String or Long. Either field name, or ADO data type constant (for ex. <EM>adInteger</EM>). 
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>Returns emtpy string if format string not found in formats collection. 
+<h4>Functional Group, Availability</h4>
+<p>Automatic Formatting Functionality. Included if user selects [Add automatic formatting functionality] 
+checkbox in [Class Functionality / Recordset manipulation] page in CLASSter. 
+<h4>See also</h4> 
+	<a href="#ValueFmt">ValueFmt</a>,
+	<a href="#FormatSet">FormatSet</a>,
+	<a href="#FormatsClear">FormatsClear</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="FormatsClear"/>
+<HR>
+<h3>FormatsClear Sub</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Sub</FONT> FormatsClear()
+</pre></code>
+<p><h4>Description</h4>
+<p>Clears formats collection
+<h4>Comments</h4>
+<p>(None)
+<h4>Functional Group, Availability</h4>
+<p>Automatic Formatting Functionality. Included if user selects [Add automatic formatting functionality] 
+checkbox in [Class Functionality / Recordset manipulation] page in CLASSter. 
+<h4>See also</h4> 
+	<a href="#ValueFmt">ValueFmt</a>,
+	<a href="#FormatSet">FormatSet</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="ENUM_ERRDB"/>
+<HR>
+<h3>Enum ENUM_ERRDB</h3>
+<p><h4>Description</h4>
+<p>
+<h4>Constants</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Constant Name
+		<th>Description
+	</tr>
+	<tr><td><EM>ERRCTR_BATCH_NOT_ACTIVE</EM>
+		<td>Raised when application calls one of batch-related methods without calling <EM>BatchBegin</EM> first. 
+	</tr>
+	<tr><td><EM>ERRCTR_BATCH_PRMDUPLICATE</EM>
+		<td>Raised by BatchDeclareVar method if application tries to assign batch variable to substitute parameter
+		name that was already assigned previously by another variable. 
+	</tr>
+	<tr><td><EM>ERRCTR_NO_CONNECTION_STRING</EM>
+		<td>Raised if connection string is empty at the time when class attempts to connect to database.  
+	</tr>
+	<tr><td><EM>ERRCTR_REGISTRY_FAILED</EM>
+		<td>Raised if error occured when class attempted to access system registry to retrieve connection string. 
+	</tr>
+	<tr><td><EM>ERRCTR_INVALID_PARAM_COUNT</EM>
+		<td>Raised by <EM>ExecSPbyName</EM> method if number of parameters values provided in array by application does not
+		match number of parameters of stored procedure. 
+	</tr>
+	<tr><td><EM>ERRCTR_INVALID_PARAMDEF</EM>
+		<td>Raised by <EM>ExecSPbyName</EM> method if it encounters invalid parameter definition. 
+	</tr>
+	<tr><td><EM>ERRCTR_TYPE_NOT_SUPPORTED</EM>
+		<td>Raised in batch mode if encountered parameter data type that is not supported by batch mode 
+		(for ex., Binary type). 
+	</tr>
+	<tr><td><EM>ERRCTR_SP_RETURNED_NON_ZERO</EM>
+		<td>Raised if MS SQL Server / Sybase stored procedure returned non-zero value. 
+	</tr>
+	<tr><td><EM>ERRCTR_STRING_TOO_LONG</EM>
+		<td>Raised if length of string argument exceeds maximum specified for parameter, and CTRO_STRLEN_RAISE flag
+		is set through <a href="#Options">Options</a> property.  
+	</tr>
+	<tr><td><EM>ERRCTR_INVALID_NODESPEC</EM>
+		<td>Raised by xmlGetDataAdv method if invalid XML node specification is provided by application in 
+		corresponding parameter.  
+	</tr>
+</table>
+<h4>See also</h4> 
+	<a href="#Options">Options Property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="ENUM_CTR_OPTIONS"/>
+<HR>
+<h3>Enum ENUM_CTR_OPTIONS</h3>
+<p><h4>Description</h4>
+<p>Bit masks identifying flags in internal flag set controlling database class behavior. 
+Each flag may be set/reset and retrieved through
+<a href="#Options">Options</a>  property. Initial values are specified through corresponding options
+in CLASSter. The following table explains what type of class behavior is affected by each flag. 
+<h4>Constants</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Constant Name
+		<th>Description
+	</tr>
+	<tr><td><EM>CTRO_ERR_RAISE</EM>
+		<td>If flag is set database class re-raises errors in public methods. The caller code should 
+		setup error handler and handle the error.
+	</tr>
+	<tr><td><EM>CTRO_ERR_SETABORT</EM>
+		<td>If flag is set database class automatically aborts current transaction in case of error. 
+	</tr>
+	<tr><td><EM>CTRO_ERR_DISABLECOMMIT</EM>
+		<td>If flag is set database class automatically calls ObjectContext.DisableCommit in case of error. 
+	</tr>
+	<tr><td><EM>CTRO_STRLEN_RAISE </EM>
+		<td>If flag is set database class raises error if value of string argument is longer than maximum 
+		specified for the parameter.  
+	</tr>
+	<tr><td><EM>CTRO_STRLEN_TRIM</EM>
+		<td>If flag is set database class automatically trims value of string argument if it is longer than
+		maximum specified for the parameter. 
+	</tr>
+	<tr><td><EM>CTRO_NULL_EMPTYSTR</EM>
+		<td>If flag is set empty (zero-length) values of string arguments are automatically substituted with Null 
+		when assigning stored procedure parameter value. 
+	</tr>
+	<tr><td><EM>CTRO_NULL_ZERODATE</EM>
+		<td>If flag is set 0 values of Date arguments are automatically substituted with Null 
+		when assigning stored procedure parameter value. 
+	</tr>
+	<tr><td><EM>CTRO_AUTO_CONNCLOSE </EM>
+		<td>If flag is set class automatically closes connection to database after executing database operation.
+	</tr>
+	<tr><td><EM>CTRO_AUTO_CONNRELEASE</EM>
+		<td>If flag is set class automatically releases connection object after executing database operation.
+	</tr>
+	<tr><td><EM>CTRO_AUTO_DISCONNECT_RSET </EM>
+		<td>If flag is set class automatically disconnects Recordset after executing database operation.
+	</tr>
+	<tr><td><EM>CTRO_AUTO_SKIPCLOSED</EM>
+		<td>If flag is set class automatically skips closed recordsets. Current recordset state is checked 
+		after executing database operation, and after calling SelectNextRecordset method. 
+	</tr>
+	<tr><td><EM>CTRO_AUTO_CHKRETVAL</EM>
+		<td>If flag is set class automatically checks Long value returned by MS SQL Server / Sybase stored
+		procedure, and raises error if this value is not 0. 
+	</tr>
+</table>
+<h4>See also</h4> 
+	<a href="#Options">Options Property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="Options"/>
+<HR>
+<h3>Options Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> Options(<FONT color=#000080>ByVal</FONT> mask <FONT color=#000080>As</FONT> ENUM_CTR_OPTIONS) <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Let</FONT> Options(<FONT color=#000080>ByVal</FONT> mask <FONT color=#000080>As</FONT> ENUM_CTR_OPTIONS, <FONT color=#000080>ByVal</FONT> Value <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>)
+</pre></code>
+<p><h4>Description</h4>
+<p>Read/Write. Returns/Sets values of bit flags controlling behavior of database class. 
+Flag masks are declared in enum <EM>ENUM_CTR_OPTIONS</EM>
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>Mask </EM>
+		<td>Bit flag declared in ENUM_CTR_OPTIONS enumeration. 
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>Returns True if flag defined by <EM>mask</EM> parameter is set, False if reset. 
+To set the flag application should assign True value to Options property using corresponding bit mask, 
+correspondingly assign False to reset the flag. 
+Internally flags are stored in <EM>mOptions</EM> class-level variable. One byte of <EM>mOptions</EM> 
+4-byte Long variable is used by database class itself to store internal dynamic flags.  
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic functionality. Always included
+<h4>See also</h4> 
+	<a href="#ENUM_CTR_OPTIONS">ENUM_CTR_OPTIONS</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="ConnectionString"/>
+<HR>
+<h3>ConnectionString Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> ConnectionString() <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Let</FONT> ConnectionString(<FONT color=#000080>ByVal</FONT> AValue <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>)
+</pre></code>
+<p><h4>Description</h4>
+<p>Read/Write. Sets/Retrieves connection string used by database class instance. 
+<h4>Parameters</h4>
+<p>(None)
+<h4>Comments</h4>
+<p>Connection string is stored in internal class-level variable. It is initialized from
+source specified in [Connection Source] page in CLASSter. If this internal variable contains
+empty string (due to failure to retrieve from source, or property was not assigned yet), then 
+<EM>ConnectionString</EM> property returns default connection string (if one was specified in
+[Default Connection] page in CLASSter). 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic functionality. Always included in database class. 
+<h4>See also</h4> 
+	<a href="ConnectionString4Err">ConnectionString4Err property</a>,
+	<a href="Connection">Connection property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="Connected"/>
+<HR>
+<h3>Connected property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> Connected() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Read only. Returns True if database class instance has opened connection to database, i.e. instantiated 
+and opened ADO Connection instance. 
+<h4>Parameters</h4>
+<p>(None)
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic functionality. Always included in database class. 
+<h4>See also</h4> 
+	<a href="#ConnectionString4Err">ConnectionString4Err property</a>,
+	<a href="#Connection">Connection property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+
+<A name="Connect"/>
+<HR>
+<h3>Connect Sub</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Sub</FONT> Connect()
+</pre></code>
+<p><h4>Description</h4>
+<p>Connects class instance to database if not connected previously. Does nothing if instance 
+is already connected. 
+<h4>Parameters</h4>
+<p>(None)
+<h4>Comments</h4>
+<p>Normally application doesn't need to call Connect explicitly. Database class establishes
+connection automatically when application calls class method executing database operation. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic functionality. Always included in database class. 
+<h4>See also</h4> 
+	<a href="#Connected">Connected property</a>,
+	<a href="#Connection">Connection property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="Disconnect"/>
+<HR>
+<h3>Disconnect Sub</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Sub</FONT> Disconnect()
+</pre></code>
+<p><h4>Description</h4>
+<p>Closes connection to database. Doesn't release ADO Connection object. 
+<h4>Parameters</h4>
+<p>(None)
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic functionality. Always included in database class. 
+<h4>See also</h4> 
+	<a href="#Connected property">Connected property</a>,
+	<a href="#Connection">Connection property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="DisconnectRecordset"/>
+<HR>
+<h3>DisconnectRecordset Sub</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Sub</FONT> DisconnectRecordset()</pre></code>
+</pre></code>
+<p><h4>Description</h4>
+<p>Disconnects current Recordset from database by assigning <EM>Nothing</EM> to <EM>ActiveConnection</EM> property.
+<h4>Parameters</h4>
+<p>(None)
+<p>
+<h4>Comments</h4>
+<p>If you set <EM>CTRO_AUTO_DISCONNECT_RSET</EM> flag through <a href="#Options">Options</a>
+ property then database class will disconnect all recordsets automatically after executing
+ database operation. 
+<h4>Functional Group, Availability</h4>
+<p>Basic functionality. Always included in database class. 
+<h4>See also</h4> 
+	<a href="#Connect">Connect</a>,
+	<a href="#Disconnect">Disconnect</a>,
+	<a href="#Connection">Connection property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="ReleaseConnection"/>
+<HR>
+<h3>ReleaseConnection Sub</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Sub</FONT> ReleaseConnection()
+</pre></code>
+<p><h4>Description</h4>
+<p>Releases internal ADO <EM>Connection</EM> object by assigning Nothing to internal
+reference. Closes connection before releasing it only if Connection was opened by 
+database class itself. If Connection object was provided by application, doesn't 
+close the connection. 
+Also disconnects current <a href="#Recordset">Recordset</a> if it exists. 
+<h4>Parameters</h4>
+<p>(None)
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic functionality. Always included in database class. 
+<h4>See also</h4> 
+	<a href="#Connect">Connect</a>,
+	<a href="#Disconnect">Disconnect</a>,
+	<a href="#Connection">Connection property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="ReleaseADO"/>
+<HR>
+<h3>ReleaseADO Sub</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Sub</FONT> ReleaseADO()
+</pre></code>
+<p><h4>Description</h4>
+<p>Releases all three internal ADO objects: Connection, Recordset, and Command.
+<h4>Parameters</h4>
+<p>(None)
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic functionality. Always included in database class. 
+<h4>See also</h4> 
+	<a href="#Connect">Connect</a>,
+	<a href="#Disconnect">Disconnect</a>,
+	<a href="#Connection">Connection property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="Connection"/>
+<HR>
+<h3>Connection Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> Connection() <FONT color=#000080>As</FONT> ADODB.Connection
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Set</FONT> Connection(<FONT color=#000080>ByVal</FONT> AConnection <FONT color=#000080>As</FONT> ADODB.Connection)
+</pre></code>
+<p><h4>Description</h4>
+<p>Sets/retrieves internal ADO <EM>Connection</EM> object reference used to perform 
+database operations. 
+<h4>Parameters</h4>
+<p>(None)
+<h4>Comments</h4>
+<p>The internal instance of ADO <EM>Connection</EM> object is created automatically 
+at the time of the first database operation. 
+You can use this property to assign global <EM>Connection</EM> object after
+instantiating database class if your application uses such global object 
+for all database operations. 
+<p>Note that if CTRO_AUTO_CONNRELEASE <a href="#Options">Options</a> flag is set 
+ <EM>Connection</EM> object is created and destroyed for every database operation.  
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Always included
+<h4>See also</h4> 
+	<a href="#ConnectionString">ConnectionString property</a>,
+	<a href="#Connect">Connect Sub</a>,
+	<a href="#ReleaseConnection">ReleaseConnection Sub</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="Command"/>
+<HR>
+<h3>Command Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> Command() <FONT color=#000080>As</FONT> ADODB.Command
+</pre></code>
+<p><h4>Description</h4>
+<p>Read Only. Retrieves internal ADO <EM>Command</EM> object reference used in last
+database operation.
+<h4>Parameters</h4>
+<p>(None)
+<h4>Comments</h4>
+<p>New instance of ADO <EM>Command</EM> object is created for each database operation. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Always included
+<h4>See also</h4> 
+	<a href="#Connection">Connection property</a>,
+	<a href="#Recordset">Recordset property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="Recordset"/>
+<HR>
+<h3>Recordset Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> Recordset() <FONT color=#000080>As</FONT> ADODB.Recordset
+</pre></code>
+<p><h4>Description</h4>
+<p>Read Only. Retrieves ADO <EM>Recordset</EM> object created as a result 
+of last database operation. 
+<h4>Parameters</h4>
+<p>(None)
+<h4>Comments</h4>
+<p>The new instance of ADO <EM>Recordset</EM> object is created for each database operation. 
+You can either manipulate this Recordset directly, or use corresponding database class 
+methods and properties:	<a href="#RsNavigation">MoveFirst</a>,	<a href="#RsNavigation">MoveNext</a>,
+	<a href="#RsNavigation">EOF</a>, etc.
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Always included
+<h4>See also</h4> 
+	<a href="#Connection">Connection property</a>,
+	<a href="#Command">Command property</a>,
+	<a href="#RsNavigation">MoveFirst</a>,
+	<a href="#RsNavigation">MoveNext</a>,
+	<a href="#RsNavigation">EOF</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="TestConnection"/>
+<HR>
+<h3>TestConnection Function</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> TestConnection(<FONT color=#000080>ByVal</FONT> AConnectstring <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>, _
+        <FONT color=#000080>ByRef</FONT> ErrDescr <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>) <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Tests connection string provided as a parameter. Returns True if connection
+was established successfully, False if failed. ErrDescr parameter contains
+error message returned by ADO in case of failure. 
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>AConnectString</EM>
+		<td>Required, String. Connection string to be tried in connection.
+	</tr>
+	<tr>
+		<td><EM>ErrDescr</EM></td>
+		<td>Required, String. Output parameter returning error description in case of failure.</td>
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>Function is completely independent from all other class functionality. 
+It doesn't use or modify internal class instance variables, but 
+uses local variables to perform the test. Calling this function does not
+change <A href="#Connected">ConnectionString</a> property, 
+or modify <A href="#Connected">Connected</a> status. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Additional ADO Functionality. Included if user checks the corresponding box 
+in [ADO Helper Functions] page
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="ADOVersion"/>
+<HR>
+<h3>ADOVersion Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> ADOVersion() <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Read only. Retrieves String representing version of ADO library 
+currently installed on computer, for example "2.5"
+<h4>Parameters</h4>
+<p>(None)
+<h4>Comments</h4>
+<p><p>(None)
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Additional ADO Functionality. Included if user checks the corresponding box 
+in [ADO Helper Functions] page
+<h4>See also</h4> 
+	<a href="#Connection">Connection property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="SetADOSettings"/>
+<HR>
+<h3>SetADOSettings Sub</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Sub</FONT> SetADOSettings(<FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> ACursorLocation, _
+                          <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> ACursorType, _
+                          <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> ALockType, _
+                          <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> AConnectionTimeout, _
+                          <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> ACommandTimeout, _
+                          <FONT color=#000080>Optional</FONT> <FONT color=#000080>ByVal</FONT> AnADOExecOptions)
+</pre></code>
+<p><h4>Description</h4>
+<p>Sets ADO attributes used when executing database operations.  
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>ACursorLocation</EM>
+		<td>Optional, Long. Must be one of the following constants: 
+			<EM>adUseClient</EM>, <EM>adUseServer</EM>.
+	</tr>
+	<tr>
+		<td><EM>ACursorType</EM>
+		<td>Optional, Long. Must be one of the constants defined by ADO <EM>CursorTypeEnum</EM>
+		enum. 
+	</tr>
+	<tr>
+		<td><EM>ALockType</EM>
+		<td>Optional, Long. Must be one of the constants defined by ADO <EM>LockTypeEnum</EM>
+	</tr>
+	<tr>
+		<td><EM>AConnectionTimeout</EM>
+		<td>Optional. Long. Connection timeout value, in seconds.
+	</tr>
+	<tr>
+		<td><EM>ACommandTimeout</EM>
+		<td>Optional. Long. Command timeout value, in seconds.
+	</tr>
+	<tr>
+		<td><EM>AnADOExecOptions</EM>
+		<td>Optional, Long. Must be one of the following constants defined by ADO:
+			adAsyncExecute, adAsyncFetch, adAsyncFetchNonBlocking, or 0.
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>This sub changes internal variables carrying ADO settings used in database operations.
+Initial values of these variables are set according to selections 
+in [Initial Class Settings / ADO] page in <STRONG>CLASSter</STRONG>. 
+<EM>SetADOSettings</EM> allows you to alter these settings on-the-fly. All parameters 
+are optional, so only those that are provided as parameters are actually being changed. 
+<p>Important: if you alter <EM>ConnectionTimeout</EM> or <EM>CursorLocation</EM> attributes you should 
+explicitly call <a href="#Disconnect">Disconnect</a> Sub to disconnect Connection object
+therefore forcing database class to recreate it with new attributes
+in next database operation.  
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Always included
+<h4>See also</h4> 
+	<a href="#Disconnect">Disconnect</a>
+	<a href="#RecordsetMaxRecords">RecordsetMaxRecords</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="RecordsetMaxRecords"/>
+<HR>
+<h3>RecordsetMaxRecords Property</h3>
+<h4>Declaration</h4>
+<table border='0' cellpadding=0 width='100%'> <tr valign='top'><td>
+<code><pre>
+<font color="#000080">Public</font> RecordsetMaxRecords <font color="#000080">As</font> Long</pre></code>
+</td></tr></table>
+<h4>Description</h4>
+<p>Read/Write. 
+Allows application to specify maximum records to be returned from database. 
+Default is 0 (no limits).
+<h4>Comments</h4>
+<p>Must be set before executing database operation returning data in <EM>Recordset</EM>.
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Always included
+<h4>See also</h4> 
+	<a href="#SetADOSettings">SetADOSettings</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="ProcGroup"/>
+<HR>
+<h3>ProcGroup Property</h3>
+<h4>Declaration</h4>
+<table border='0' cellpadding=0 width='100%'> <tr valign='top'><td>
+<code><pre>
+<font color="#000080">Public</font> ProcGroup <font color="#000080">As</font> Long</pre></code>
+</td></tr></table>
+<h4>Description</h4>
+<p>Read/Write. 
+Allows application to specify stored procedure's group number for the next stored procedure
+call. Sybase and MS SQL Server allow definition of several stored procedures with the same
+name. Versions are distinguished by additional attribute <EM>Procedure Group</EM> - 
+integer number that must be attached to procedure's name with ";" delimiter. 
+<h4>Comments</h4>
+<p>Must be set before calling stored procedure.
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Applicable to MS SQL Server and Sybase servers. 
+<h4>See also</h4> 
+	<a href="#SetADOSettings">SetADOSettings</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="Value"/>
+<HR>
+<h3>Value Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> Value(<FONT color=#000080>ByVal</FONT> FieldName <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>) <FONT color=#000080>As</FONT> <FONT color=#000080>Variant</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Read Only. Returns Variant value of <a href="#Recordset">Recordset</a> field identified by 
+<EM>FieldName</EM> argument. 
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>FieldName</EM>
+		<td>Required, String. Name of field in current <a href="#Recordset">Recordset</a>. 
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>This property is Null-safe. If field value is Null it returns Variant Empty value 
+which is compatible with any VB type. For example, you can safely assign value 
+returned by this property to string variable without checking first if field value is 
+Null. If field is Null then your string variable will contain empty string as result of 
+assignment. To find out if field value is Null you can use 
+<a href="#ValueIsNull">ValueIsNull</a> property. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Always included
+<h4>See also</h4> 
+	<a href="#Recordset">Recordset</a>,
+	<a href="#ValueIsNull">ValueIsNull property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="ValueIsNull"/>
+<HR>
+<h3>ValueIsNull Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> ValueIsNull(<FONT color=#000080>ByVal</FONT> FieldName <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>) <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Read Only. Returns Boolean True if  value of <a href="#Recordset">Recordset</a> field identified by 
+<EM>FieldName</EM> argument is Null. 
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>FieldName</EM>
+		<td>Required, String. Name of field in current <a href="#Recordset">Recordset</a>. 
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>(None)
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Always included
+<h4>See also</h4> 
+	<a href="#Recordset">Recordset</a>,
+	<a href="#Value">Value property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="ParamValue"/>
+<HR>
+<h3>ParamValue Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> ParamValue(<FONT color=#000080>ByVal</FONT> ParamName <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>) <FONT color=#000080>As</FONT> <FONT color=#000080>Variant</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Read Only. Returns Variant Value of Parameter identified by <EM>ParamName</EM> argument 
+from <h4>Parameters</h4> from ADO Command.Parameters collection.
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>ParamName</EM>
+		<td>Required, String. Parameter name.
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>Use this property to retrieve output parameter value returned from database.
+This property is Null-safe. If Parameter value is Null it returns Variant Empty value 
+which is compatible with any VB type. You can safely assign value 
+returned by this property to VB variable without checking first if field value is 
+Null. To find out if Parameter value is Null you can use 
+<a href="#ParamIsNull">ParamIsNull</a> property. 
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Always included
+<h4>See also</h4> 
+	<a href="#ParamIsNull">ParamIsNull property</a>. 
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+<A name="ParamIsNull"/>
+<HR>
+<h3>ParamIsNull Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Function</FONT> ParamIsNull(<FONT color=#000080>ByVal</FONT> ParamName <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>) <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Read Only. Returns Boolean True if  value of <EM>Parameter</EM> identified by 
+<EM>ParamName</EM> argument is Null. 
+<h4>Parameters</h4>
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th>Name
+		<th>Description
+	</tr>
+	<tr>
+		<td><EM>ParamName</EM>
+		<td>Required, String. Parameter name.
+	</tr>
+</table>
+<h4>Comments</h4>
+<p>(None)
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Always included.
+<h4>See also</h4> 
+	<a href="#ParamValue">ParamValue property</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="ReturnValue"/>
+<HR>
+<h3>ReturnValue Property</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> ReturnValue() <FONT color=#000080>As</FONT> <FONT color=#000080>Long</FONT>
+</pre></code>
+<p><h4>Description</h4>
+<p>Read Only. Retrieves Long value returned by last executed MS SQL Server/ Sybase stored 
+procedure. 
+<h4>Parameters</h4>
+<p>(None)
+<h4>Comments</h4>
+<p>MS SQL Server / Sybase stored procedures are actually functions returning Long value.
+<EM>ReturnValue</EM> property retrieves this value after execution of stored procedure. 
+By default (if stored procedure doesn't have RETURN operator) this value is 0. 
+Commonly used convention is to return non-zero value as indication of error. 
+<p>Note: If you set <EM>CTRO_AUTO_CHKRETVAL</EM> flag through <a href="#Options">Options</a> 
+property database class will automatically raise error if stored procedure 
+returned non-zero value.
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Included only if database class is generated for 
+MS SQL Server or Sybase database servers. 
+<h4>See also</h4> 
+	<a href="#Options">Options</a>,
+	<a href="#ParamValue">ParamValue</a>
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+<A name="Error"/>
+<HR>
+<h3>Error Handling Methods</h3>
+<h4>Declaration</h4>
+<code><pre>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> ErrorNumber() <FONT color=#000080>As</FONT> <FONT color=#000080>Long</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> ErrorSource() <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> ErrorDescription() <FONT color=#000080>As</FONT> <FONT color=#000080>String</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Property</FONT> <FONT color=#000080>Get</FONT> ErrorOccurred() <FONT color=#000080>As</FONT> <FONT color=#000080>Boolean</FONT>
+<FONT color=#000080>Public</FONT> <FONT color=#000080>Sub</FONT> ErrorClear()
+</pre></code>
+<p><h4>Description</h4>
+<p>The first three properties return information about last error occurred in 
+a call to database class's method. This information is preserved in internal
+variables, and may be cleared using <EM>ErrorClear</EM> method. 
+<EM>ErrorOccurred</EM> property returns True whenever <EM>ErrorNumber</EM> property returns 
+non-zero value.
+<h4>Comments</h4>
+<p>Use these properties to retrieve information about last error occurred inside 
+database class call. Your database class has flexible and powerful 
+error handling functionality. 
+Whenever error happens it is being trapped in error handler in the same 
+method where it happened, and then 
+propagated up the call stack. Private methods always re-raise error in 
+error handlers. Public methods do or do not re-raise errors depending on
+value of CTRO_ERR_RAISE flag accessible through 
+<a href="#Options">Options</a> property. If this flag is set errors are 
+re-raised. At the same time error information is preserved in internal 
+variables, no matter error is re-raised or not. Using Options flags
+you can also specify automatic "on error" actions regarding current 
+transaction, ADO objects release, and current connection. 
+<p>Note that if you use <EM>HuntERR</EM> library for error handling, then 
+<EM>ErrorDescription</EM> property contains not original error description but error 
+report generated by <EM>HuntERR</EM> error handlers. 
+<p>We STRONGLY RECOMMEND you to use <EM>HuntERR</EM> Library for error handling in your database
+class. Keep in mind that database class generated by CLASSter is fully 
+HuntERR-compatible, internally and externally.  
+<p>
+<h4>Functional Group, Availability</h4>
+<p>Basic Functionality. Always included
+<table border='0' cellpadding=0  width='100'> <tr valign='top'><td align=right>
+<a href="#Contents">Contents</a></table>
+
+
+</td></tr>
+</table>
+
+</BODY>
+</HTML>
+
